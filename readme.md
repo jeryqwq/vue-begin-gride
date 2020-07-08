@@ -1,4 +1,4 @@
-Document :<a href="https://jeryqwq.github.io/Others/vue-begin-gride.html" target="_blank">
+<a href="https://jeryqwq.github.io/Others/vue-begin-gride.html" target="_blank">Demo || Document</a>
 
 ## 开始
 
