@@ -1,3 +1,113 @@
+Document :<a href="https://jeryqwq.github.io/Others/vue-begin-gride.html" target="_blank">
+
+---
+
+title: 新手指引组件
+lang: en-US
+
+---
+
+## 开始
+
+新手指引常用于网站首页以及 APP 欢迎页面，之前的引导页面太死了，有些还是设计师切图的 png 图片，发现切图太死板太浪费性能了，每次一个调整都要重新切图，完全做不到自定义，而且要考虑屏幕宽高，窗体出现滚动条根本又得动态定位，而且一个这个东西要占我好几百 k 的资源，所以就花了点时间研究了下具体的实现方式，用 svg 实现了相应的功能，还做了滑屏处理，防止引导元素超出可视化范围内看不到提示语。
+
+### 安装
+
+```bash
+npm i vue-begin-gride -s
+```
+
+### 使用
+
+在 vue 中一定要等待 dom 渲染完成再给 list 数组的每一个 el 对象赋值，否则无法找到 dom，所以在请在 mounted 函数中获取到每个 ref 的 dom 节点或者通过其他 api 找到的节点对象
+
+::: details 点击查看组件代码
+
+```vue
+<template>
+  <div style="">
+    <PointTool :lists="lists" :opacity="0.7" />
+    <div style="margin-left: 100px;">
+      <input type="text" ref="text" placeholder="请输入用户名" />
+      <input type="text" ref="password" placeholder="请输入密码" />
+      <div ref="login" style="width: 300px; height: 100px; background: green;">
+        登录
+      </div>
+      <div ref="end" style="width: 300px; height: 100px; background: red;">
+        end
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import PointTool from "vue-begin-gride"
+export default {
+  components: {
+    PointTool,
+  },
+  data() {
+    return {
+      lists: [],
+    }
+  },
+  mounted() {
+    this.lists = [
+      {
+        el: this.$refs.text,
+        width: "500px",
+        text:
+          "第一步，输入您的在网站已经注册过的用户名信息，用户名长度应该在6-20位之前",
+      },
+      {
+        el: this.$refs.password,
+        width: "300px",
+        text: () => (
+          <span style="color:white;width:500px">
+            "第er步：请输入注册时该用户名下对应的密码，密码限制在6-20位字符串或者数字！！！"
+          </span>
+        ),
+      },
+      {
+        el: this.$refs.login,
+        lineStyle: "stroke:red",
+        text: () => (
+          <span style="color:white">
+            "点击登录：输入您以及注册过的用户名和密码，即可登录该系统！！",
+          </span>
+        ),
+      },
+      {
+        el: this.$refs.end,
+        text: () => (
+          <span style="color:white">
+            "第四步就会出现一个下次不再提示改选择，将状态存入session，勾选后第二次刷新页面将不再展示！",
+          </span>
+        ),
+      },
+    ]
+  },
+}
+</script>
+```
+
+:::
+
+## API 说明
+
+| 参数             |        类型        | 默认值                                                    | 是否必填 | 说明                                                |
+| ---------------- | :----------------: | --------------------------------------------------------- | -------- | --------------------------------------------------- |
+| opacity          |       Number       | 0.3                                                       | false    | 背景透明度,请输入 0-1 之间的小数                    |
+| [list]           |       Array        | null                                                      | true     | 每个遮罩层的信息                                    |
+| [list].el        |        Node        |                                                           | true     | 节点的 DOM 对象，请在 mounted 的函数中赋值调用      |
+| [list].width     |       string       | 默认跟随 el 宽度                                          | false    | 当给定一个固定宽度时请使用 string 类型的 px 宽度    |
+| [list].style     |    style-string    | color:white;border-radius: 20px;;border:dashed 2px white; | false    | 提示区域自定义样式，默认 2 像素虚线白色边框，可覆盖 |
+| [list].text      | Function or String |                                                           | true     | 提示区域内容，可传入字符串或者 jsx 渲染函数         |
+| [list].lineStyle |       string       | "stroke-dasharray: 5px 5px;stroke-width:2px"              | false    | 链接线条的 svg 样式，详情请阅读 svg 文档            |
+
+<vue-begin-gride />
+## 自定义渲染节点
+
 ## demo | dev
 
 ```bash
