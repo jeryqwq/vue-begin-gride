@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "publish": "npm publish",
     "dev": "vue serve test/normal.vue",
     "build": "vue build --target lib --name main './src/index.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +21,9 @@
   },
   "keywords": [
     "新手指引",
-    "begin-gride"
+    "begin-gride",
+    "操作指引",
+    "首页指引"
   ],
   "homepage": "https://github.com/jeryqwq/vue-begin-gride",
   "author": "jeryqwq",
