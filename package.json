@@ -1,0 +1,22 @@
+{
+  "name": "vue-begin-gride",
+  "version": "1.0.3",
+  "description": "新手指引组件 ",
+  "main": "./dist/main.umd.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "vue": "2.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "新手指引",
+    "begin-gride"
+  ],
+  "author": "chencc",
+  "license": "ISC"
+}
