@@ -34,7 +34,7 @@ npm i vue-begin-gride -s
 </template>
 
 <script>
-import PointTool from "vue-begin-gride"
+import PointTool from "./../src/index"
 export default {
   components: {
     PointTool,
@@ -49,12 +49,14 @@ export default {
       {
         el: this.$refs.text,
         width: "500px",
+        style: "border:3px red solid",
+        padding: 5,
         text:
           "第一步，输入您的在网站已经注册过的用户名信息，用户名长度应该在6-20位之前",
-        padding: 20,
       },
       {
         el: this.$refs.password,
+        padding: 4,
         width: "300px",
         text: () => (
           <span style="color:white;width:500px">
@@ -64,7 +66,6 @@ export default {
       },
       {
         el: this.$refs.login,
-        lineStyle: "stroke:red",
         text: () => (
           <span style="color:white">
             "点击登录：输入您以及注册过的用户名和密码，即可登录该系统！！",
@@ -73,6 +74,7 @@ export default {
       },
       {
         el: this.$refs.end,
+        padding: 20,
         text: () => (
           <span style="color:white">
             "第四步就会出现一个下次不再提示改选择，将状态存入session，勾选后第二次刷新页面将不再展示！",
@@ -99,6 +101,8 @@ export default {
 | [list].text      | Function or String |                                                           | true     | 提示区域内容，可传入字符串或者 jsx 渲染函数         |
 | [list].lineStyle |       string       | "stroke-dasharray: 5px 5px;stroke-width:2px"              | false    | 链接线条的 svg 样式，详情请阅读 svg 文档            |
 | [list].padding   |       Number       | 10                                                        | false    | 遮罩层相对 DOM 节点的 padding 值                    |
+
+<vue-begin-gride />
 
 ```bash
 vue serve test/边界固定.vue
