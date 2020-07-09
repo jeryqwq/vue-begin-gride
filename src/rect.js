@@ -147,7 +147,7 @@ export default {
         this.offsetPoint.y = this.scrollLeft - this.position.left
       }
       if (
-        this.scrollTop > this.position.top &&
+        this.scrollTop > this.position.top + this.position.height &&
         foreignPosition["bottom"] < window.innerHeight
       ) {
         this.offsetPoint.x =

@@ -1719,7 +1719,7 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
         this.offsetPoint.y = this.scrollLeft - this.position.left;
       }
 
-      if (this.scrollTop > this.position.top && foreignPosition["bottom"] < window.innerHeight) {
+      if (this.scrollTop > this.position.top + this.position.height && foreignPosition["bottom"] < window.innerHeight) {
         this.offsetPoint.x = this.scrollTop - this.position.top - this.position.height;
       }
 
