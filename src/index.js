@@ -1,4 +1,4 @@
-import beginGride from "./index.vue"
+import beginGride from "./BeginGride.vue"
 
 export default {
   props: ["lists", "opacity"],

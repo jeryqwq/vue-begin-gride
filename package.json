@@ -1,6 +1,6 @@
 {
   "name": "vue-begin-gride",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "新手指引组件 ",
   "main": "./dist/main.umd.js",
   "directories": {
@@ -11,19 +11,17 @@
   },
   "devDependencies": {},
   "scripts": {
-    "publish": "npm publish",
     "dev": "vue serve test/normal.vue",
     "build": "vue build --target lib --name main './src/index.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "publishConfig": {
-    "registry": "https://www.npmjs.com/package/vue-begin-gride"
   },
   "keywords": [
     "新手指引",
     "begin-gride",
     "操作指引",
-    "首页指引"
+    "首页指引",
+    "vue",
+    "component"
   ],
   "homepage": "https://github.com/jeryqwq/vue-begin-gride",
   "author": "jeryqwq",

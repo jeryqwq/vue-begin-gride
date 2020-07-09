@@ -40,11 +40,13 @@ export default {
         el: this.$refs.login,
         width: "500px",
         lineStyle: "stroke:red",
+        padding: 6,
         text:
           "第一步，输入您的在网站已经注册过的用户名信息，用户名长度应该在6-20位之前",
       },
       {
         el: this.$refs.password,
+        padding: 10,
         text: () => (
           <span style="color:white;width:500px">
             "第er步：请输入注册时该用户名下对应的密码，密码限制在6-20位字符串或者数字！！！"
@@ -53,6 +55,7 @@ export default {
       },
       {
         el: this.$refs.login,
+        padding: 3,
         text: () => (
           <span style="color:white">
             "点击登录：输入您以及注册过的用户名和密码，即可登录该系统！！",

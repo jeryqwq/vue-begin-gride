@@ -1548,12 +1548,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/index.vue?vue&type=template&id=3694a0a6&
-var lib_vue_loader_options_srcvue_type_template_id_3694a0a6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.curIdx < _vm.lists.length)?_c('svg',{staticStyle:{"position":"fixed","left":"0","top":"0","z-index":"999","min-width":"100vw","min-height":"100vh"}},_vm._l((_vm.lists || []),function(item,idx){return _c('BorderRect',{key:idx,attrs:{"idx":idx,"item":item,"curIdx":_vm.curIdx,"incrment":_vm.incrment,"opacity":_vm.opacity,"len":_vm.lists.length}})}),1):_vm._e()}
+// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/BeginGride.vue?vue&type=template&id=24059080&
+var BeginGridevue_type_template_id_24059080_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.curIdx < _vm.lists.length)?_c('svg',{staticStyle:{"position":"fixed","left":"0","top":"0","z-index":"999","min-width":"100vw","min-height":"100vh"}},_vm._l((_vm.lists || []),function(item,idx){return _c('BorderRect',{key:idx,attrs:{"idx":idx,"item":item,"curIdx":_vm.curIdx,"incrment":_vm.incrment,"opacity":_vm.opacity,"len":_vm.lists.length}})}),1):_vm._e()}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/index.vue?vue&type=template&id=3694a0a6&
+// CONCATENATED MODULE: ./src/BeginGride.vue?vue&type=template&id=24059080&
 
 // EXTERNAL MODULE: /Users/apple/.config/yarn/global/node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("22f4");
@@ -1622,8 +1622,10 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
     neverAlert: function neverAlert(e) {
       e.stopPropagation();
     },
-    handleChange: function handleChange() {
-      window.sessionStorage.setItem("isfingerPoint", "true");
+    handleChange: function handleChange(e) {
+      if (e.target.checked) {
+        window.sessionStorage.setItem("isfingerPoint", "true");
+      }
     }
   },
   render: function render() {
@@ -1668,7 +1670,8 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
       "style": "color:white;font-size:14px;line-height:30px"
     }, [h("input", {
       "attrs": {
-        "type": "checkbox"
+        "type": "checkbox",
+        "select": true
       },
       "style": "vertical-align: middle;",
       "on": {
@@ -1680,7 +1683,7 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
         "click": this.incrment
       },
       "style": "float:right;margin:10px;border:solid 1px white;padding:8px;border-radius:5px;cursor:pointer"
-    }, ["\u4E0B\u4E00\u6B65"])])]);
+    }, [this.len - 1 === this.curIdx ? "完成" : "下一步"])])]);
   },
   computed: {
     wrapPosition: function wrapPosition() {
@@ -1731,12 +1734,13 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
       top -= this.scrollTop;
       left -= this.scrollLeft;
       var wwidth = window.innerWidth,
-          wheight = window.innerHeight;
-      return "\n            M".concat(left - 10, "  ").concat(top + height + 5, ",\n            0 ").concat(wheight, ",\n            ").concat(wwidth, " ").concat(wheight, ",\n            ").concat(wwidth, " 0,\n            0 0,\n            0 ").concat(wheight, ",\n            ").concat(left - 10, "  ").concat(top + height + 5, ",\n            ").concat(left - 10, "  ").concat(top - 5, ",\n            ").concat(left + width + 10, "  ").concat(top - 5, ",\n            ").concat(left + width + 10, "  ").concat(top + height + 5, "\n            Z");
+          wheight = window.innerHeight,
+          padding = this.item.padding || 10;
+      return "\n            M".concat(left - padding, "  ").concat(top + height + padding, ",\n            0 ").concat(wheight, ",\n            ").concat(wwidth, " ").concat(wheight, ",\n            ").concat(wwidth, " 0,\n            0 0,\n            0 ").concat(wheight, ",\n            ").concat(left - padding, "  ").concat(top + height + padding, ",\n            ").concat(left - padding, "  ").concat(top - padding, ",\n            ").concat(left + width + padding, "  ").concat(top - padding, ",\n            ").concat(left + width + padding, "  ").concat(top + height + padding, "\n            Z");
     }
   }
 });
-// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/thread-loader/dist/cjs.js!/Users/apple/.config/yarn/global/node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib??ref--12-1!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/index.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/thread-loader/dist/cjs.js!/Users/apple/.config/yarn/global/node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib??ref--12-1!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/BeginGride.vue?vue&type=script&lang=js&
 
 //
 //
@@ -1764,7 +1768,7 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
 //
 //
 
-/* harmony default export */ var lib_vue_loader_options_srcvue_type_script_lang_js_ = ({
+/* harmony default export */ var BeginGridevue_type_script_lang_js_ = ({
   props: {
     lists: {
       type: Array,
@@ -1809,8 +1813,8 @@ var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
     }
   }
 });
-// CONCATENATED MODULE: ./src/index.vue?vue&type=script&lang=js&
- /* harmony default export */ var srcvue_type_script_lang_js_ = (lib_vue_loader_options_srcvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/BeginGride.vue?vue&type=script&lang=js&
+ /* harmony default export */ var src_BeginGridevue_type_script_lang_js_ = (BeginGridevue_type_script_lang_js_); 
 // CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
 
@@ -1906,7 +1910,7 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./src/index.vue
+// CONCATENATED MODULE: ./src/BeginGride.vue
 
 
 
@@ -1915,8 +1919,8 @@ function normalizeComponent (
 /* normalize component */
 
 var component = normalizeComponent(
-  srcvue_type_script_lang_js_,
-  lib_vue_loader_options_srcvue_type_template_id_3694a0a6_render,
+  src_BeginGridevue_type_script_lang_js_,
+  BeginGridevue_type_template_id_24059080_render,
   staticRenderFns,
   false,
   null,
@@ -1925,14 +1929,14 @@ var component = normalizeComponent(
   
 )
 
-/* harmony default export */ var src = (component.exports);
+/* harmony default export */ var BeginGride = (component.exports);
 // CONCATENATED MODULE: ./src/index.js
 
-/* harmony default export */ var src_0 = ({
+/* harmony default export */ var src = ({
   props: ["lists", "opacity"],
   render: function render() {
     var h = arguments[0];
-    var el = h(src, {
+    var el = h(BeginGride, {
       "attrs": {
         "lists": this.lists,
         "opacity": this.opacity
@@ -1944,7 +1948,7 @@ var component = normalizeComponent(
 // CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_0);
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
 
 
 

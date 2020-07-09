@@ -43,8 +43,10 @@ export default {
     neverAlert(e) {
       e.stopPropagation()
     },
-    handleChange() {
-      window.sessionStorage.setItem("isfingerPoint", "true")
+    handleChange(e) {
+      if (e.target.checked) {
+        window.sessionStorage.setItem("isfingerPoint", "true")
+      }
     },
   },
   render() {
@@ -96,6 +98,7 @@ export default {
                     style="vertical-align: middle;"
                     onChange={this.handleChange}
                     ref="checkbox"
+                    select={true}
                   />
                   下次不再提示
                 </label>
@@ -105,7 +108,7 @@ export default {
               onClick={this.incrment}
               style="float:right;margin:10px;border:solid 1px white;padding:8px;border-radius:5px;cursor:pointer"
             >
-              下一步
+              {this.len - 1 === this.curIdx ? "完成" : "下一步"}
             </span>
           </foreignObject>
         </g>
@@ -158,18 +161,19 @@ export default {
       top -= this.scrollTop
       left -= this.scrollLeft
       const wwidth = window.innerWidth,
-        wheight = window.innerHeight
+        wheight = window.innerHeight,
+        padding = this.item.padding || 10
       return `
-            M${left - 10}  ${top + height + 5},
+            M${left - padding}  ${top + height + padding},
             0 ${wheight},
             ${wwidth} ${wheight},
             ${wwidth} 0,
             0 0,
             0 ${wheight},
-            ${left - 10}  ${top + height + 5},
-            ${left - 10}  ${top - 5},
-            ${left + width + 10}  ${top - 5},
-            ${left + width + 10}  ${top + height + 5}
+            ${left - padding}  ${top + height + padding},
+            ${left - padding}  ${top - padding},
+            ${left + width + padding}  ${top - padding},
+            ${left + width + padding}  ${top + height + padding}
             Z`
     },
   },

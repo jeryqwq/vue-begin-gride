@@ -48,6 +48,7 @@ export default {
       },
     }
   },
+
   mounted() {
     this.$nextTick().then(() => {
       this.position = document.documentElement.getClientRects()[0]
