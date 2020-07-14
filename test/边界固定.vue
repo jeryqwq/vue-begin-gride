@@ -12,8 +12,7 @@
     >
       <input type="text" ref="text" placeholder="请输入用户名" />
       <input type="text" ref="password" placeholder="请输入密码" />
-
-      <div ref="login" style="width: 740px; height: 130px; background: green;">
+      <div ref="login" style="width: 220px; height: 530px; background: green;">
         登录
       </div>
       <div ref="end" style="width: 300px; height: 100px; background: red;">

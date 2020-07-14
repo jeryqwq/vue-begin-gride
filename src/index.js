@@ -1,9 +1,8 @@
 import beginGride from "./BeginGride.vue"
-
 export default {
   props: ["lists", "opacity"],
+  data: () => ({}),
   render() {
-    let el = <beginGride lists={this.lists} opacity={this.opacity} />
-    return el
+    return <beginGride lists={this.lists} opacity={this.opacity} />
   },
 }

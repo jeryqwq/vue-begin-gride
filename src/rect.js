@@ -105,7 +105,7 @@ export default {
               )}
             </div>
             <span
-              onClick={this.incrment}
+              onClick={() => this.incrment(this.curIdx + 1)}
               style="float:right;margin:10px;border:solid 1px white;padding:8px;border-radius:5px;cursor:pointer"
             >
               {this.len - 1 === this.curIdx ? "完成" : "下一步"}

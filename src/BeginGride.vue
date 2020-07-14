@@ -20,11 +20,14 @@
       :opacity="opacity"
       :len="lists.length"
     />
+    <Point :len="lists.length" :curIdx="curIdx" :incrment="incrment" />
   </svg>
 </template>
 
 <script>
 import BorderRect from "./rect.js"
+import Point from "./points.vue"
+
 export default {
   props: {
     lists: {
@@ -38,6 +41,7 @@ export default {
   },
   components: {
     BorderRect,
+    Point,
   },
   data() {
     return {
@@ -64,8 +68,8 @@ export default {
     deep: true,
   },
   methods: {
-    incrment() {
-      this.curIdx++
+    incrment(idx) {
+      this.curIdx = idx
     },
   },
 }
