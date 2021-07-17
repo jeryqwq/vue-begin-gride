@@ -1,5 +1,5 @@
 const defaultWrapStyle =
-  "color:white;border-radius: 20px;;border:dashed 2px white;display: inline-block;padding:10px"
+  "color:white;border-radius: 20px;border:dashed 2px white;display: inline-block;padding:10px"
 const lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px"
 export default {
   props: ["item", "len", "curIdx", "idx", "incrment", "opacity"],

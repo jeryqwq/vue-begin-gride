@@ -1,6 +1,6 @@
 <template>
   <div style="">
-    <PointTool :lists="lists" :opacity="0.7" />
+    <!-- <PointTool :lists="lists" :opacity="0.7" /> -->
     <div style="margin-left: 100px;">
       <input type="text" ref="text" placeholder="请输入用户名" />
       <input type="text" ref="password" placeholder="请输入密码" />
@@ -15,11 +15,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import PointTool from "./../src/index"
+Vue.use(PointTool)
 export default {
-  components: {
-    PointTool,
-  },
   data() {
     return {
       lists: [],
@@ -63,6 +62,12 @@ export default {
         ),
       },
     ]
+    const { destory } = this.$guide({
+      lists: this.lists
+    })
+    setTimeout(() => {
+      destory()
+    }, 1000);
   },
 }
 </script>
