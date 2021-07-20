@@ -43,7 +43,6 @@ Vue.use(beginGride)
 ```vue
 <template>
   <div style="">
-    <PointTool :lists="lists" :opacity="0.7" />
     <div style="margin-left: 100px;">
       <input type="text" ref="text" placeholder="请输入用户名" />
       <input type="text" ref="password" placeholder="请输入密码" />
@@ -58,7 +57,9 @@ Vue.use(beginGride)
 </template>
 
 <script>
-import PointTool from "./../src/index"
+import VueBeginGride from "vue-begin-gride"
+import Vue from 'vue'
+Vue.use(VueBeginGride)
 export default {
   components: {
     PointTool,
@@ -106,6 +107,10 @@ export default {
         ),
       },
     ]
+    this.$guide({
+      lists: this.lists,
+      opacity: 0.2
+    })
   },
 }
 </script>
