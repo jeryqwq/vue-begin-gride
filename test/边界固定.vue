@@ -1,6 +1,5 @@
 <template>
   <div style="">
-    <PointTool :lists="lists" :opacity="0.7" />
     <div
       style="
         width: 3000px;
@@ -23,11 +22,10 @@
 </template>
 
 <script>
-import PointTool from "./../src/index.js"
+import Vue from 'vue'
+import PointTool from "./../src/index"
+Vue.use(PointTool)
 export default {
-  components: {
-    PointTool,
-  },
   data() {
     return {
       lists: [],
@@ -70,6 +68,10 @@ export default {
         ),
       },
     ]
+    this.$guide({
+      lists: this.lists,
+      opacity: 0.2
+    })
   },
 }
 </script>

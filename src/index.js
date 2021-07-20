@@ -1,27 +1,26 @@
 import beginGride from "./BeginGride.vue"
 export default {
   install (_V){
-    _V.prototype.$guide = function (props) {
+    _V.prototype.$guide = function ({lists = [], opacity= 0.7}) {
       const parent =  document.createElement('div')
       const el = document.createElement('div')
       parent.appendChild(el)
       document.body.appendChild(parent)
+      
       const vm =  new _V({
         el,
-        data: {
-          ...props
-        },
         render() {
-          return <beginGride lists={this.lists} opacity={this.opacity} />
+          return <beginGride lists={lists} opacity={opacity} on-destory={destory}/>
         }
       })
+      function destory () {
+        vm.$destroy();
+        parent.innerHTML = ''
+        document.body.removeChild(parent)
+      }
       return {
         vm,
-        destory: function() {
-          vm.$destroy();
-          parent.innerHTML = ''
-          document.body.removeChild(parent)
-        }
+        destory
       }
     }
   },

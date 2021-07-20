@@ -1,6 +1,6 @@
 {
   "name": "vue-begin-gride",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "新手指引组件 ",
   "main": "./dist/main.umd.js",
   "directories": {

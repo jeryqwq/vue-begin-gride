@@ -66,7 +66,6 @@ export default {
             ${left - 20} ${top + height / 2}  
             Q ${left - 80 + y} ${top + height / 2 + x}
             ${left - 10 + y} ${top + height + this.wrapHeight + x}
-            
             `}
             stroke="white"
             fill="none"

@@ -15,6 +15,26 @@ npm i vue-begin-gride -s
 ```
 
 ### 使用
+##### 注册插件
+```js
+import beginGride from "vue-begin-gride"
+Vue.use(beginGride)
+```
+##### 使用
+``` js
+  this.$guide({
+    list: [
+      {
+        el: this.$refs.login,
+        width: "500px",
+        lineStyle: "stroke:red",
+        padding: 6,
+        text:
+          "第一步，输入您的在网站已经注册过的用户名信息，用户名长度应该在6-20位之前",
+      }
+    ]
+  })
+```
 
 在 vue 中一定要等待 dom 渲染完成再给 list 数组的每一个 el 对象赋值，否则无法找到 dom，所以在请在 mounted 函数中获取到每个 ref 的 dom 节点或者通过其他 api 找到的节点对象
 
@@ -90,7 +110,6 @@ export default {
 }
 </script>
 ```
-
 :::
 
 ## API 说明

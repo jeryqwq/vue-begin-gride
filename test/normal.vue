@@ -62,12 +62,10 @@ export default {
         ),
       },
     ]
-    const { destory } = this.$guide({
-      lists: this.lists
+    this.$guide({
+      lists: this.lists,
+      opacity: 0.4
     })
-    setTimeout(() => {
-      destory()
-    }, 1000);
   },
 }
 </script>

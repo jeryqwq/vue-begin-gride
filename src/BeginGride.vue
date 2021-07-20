@@ -70,6 +70,9 @@ export default {
   methods: {
     incrment(idx) {
       this.curIdx = idx
+      if(idx >= this.lists.length) {
+        this.$emit('destory')
+      }
     },
   },
 }

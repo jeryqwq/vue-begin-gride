@@ -1548,12 +1548,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/BeginGride.vue?vue&type=template&id=1fa7ab46&
-var BeginGridevue_type_template_id_1fa7ab46_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.curIdx < _vm.lists.length)?_c('svg',{staticStyle:{"position":"fixed","left":"0","top":"0","z-index":"999","min-width":"100vw","min-height":"100vh"}},[_vm._l((_vm.lists || []),function(item,idx){return _c('BorderRect',{key:idx,attrs:{"idx":idx,"item":item,"curIdx":_vm.curIdx,"incrment":_vm.incrment,"opacity":_vm.opacity,"len":_vm.lists.length}})}),_c('Point',{attrs:{"len":_vm.lists.length,"curIdx":_vm.curIdx,"incrment":_vm.incrment}})],2):_vm._e()}
+// CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b3ebfbf2-vue-loader-template"}!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/apple/.config/yarn/global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/Users/apple/.config/yarn/global/node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/BeginGride.vue?vue&type=template&id=11320ff1&
+var BeginGridevue_type_template_id_11320ff1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.curIdx < _vm.lists.length)?_c('svg',{staticStyle:{"position":"fixed","left":"0","top":"0","z-index":"999","min-width":"100vw","min-height":"100vh"}},[_vm._l((_vm.lists || []),function(item,idx){return _c('BorderRect',{key:idx,attrs:{"idx":idx,"item":item,"curIdx":_vm.curIdx,"incrment":_vm.incrment,"opacity":_vm.opacity,"len":_vm.lists.length}})}),_c('Point',{attrs:{"len":_vm.lists.length,"curIdx":_vm.curIdx,"incrment":_vm.incrment}})],2):_vm._e()}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/BeginGride.vue?vue&type=template&id=1fa7ab46&
+// CONCATENATED MODULE: ./src/BeginGride.vue?vue&type=template&id=11320ff1&
 
 // EXTERNAL MODULE: /Users/apple/.config/yarn/global/node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("22f4");
@@ -1572,7 +1572,7 @@ var es_string_replace = __webpack_require__("b6cf");
 
 
 
-var defaultWrapStyle = "color:white;border-radius: 20px;;border:dashed 2px white;display: inline-block;padding:10px";
+var defaultWrapStyle = "color:white;border-radius: 20px;border:dashed 2px white;display: inline-block;padding:10px";
 var lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px";
 /* harmony default export */ var rect = ({
   props: ["item", "len", "curIdx", "idx", "incrment", "opacity"],
@@ -1970,6 +1970,10 @@ var component = normalizeComponent(
   methods: {
     incrment: function incrment(idx) {
       this.curIdx = idx;
+
+      if (idx >= this.lists.length) {
+        this.$emit('destory');
+      }
     }
   }
 });
@@ -1985,7 +1989,7 @@ var component = normalizeComponent(
 
 var BeginGride_component = normalizeComponent(
   src_BeginGridevue_type_script_lang_js_,
-  BeginGridevue_type_template_id_1fa7ab46_render,
+  BeginGridevue_type_template_id_11320ff1_render,
   staticRenderFns,
   false,
   null,
@@ -1998,18 +2002,45 @@ var BeginGride_component = normalizeComponent(
 // CONCATENATED MODULE: ./src/index.js
 
 /* harmony default export */ var src = ({
-  props: ["lists", "opacity"],
-  data: function data() {
-    return {};
-  },
-  render: function render() {
-    var h = arguments[0];
-    return h(BeginGride, {
-      "attrs": {
-        "lists": this.lists,
-        "opacity": this.opacity
+  install: function install(_V) {
+    var h = this.$createElement;
+
+    _V.prototype.$guide = function (_ref) {
+      var _ref$lists = _ref.lists,
+          lists = _ref$lists === void 0 ? [] : _ref$lists,
+          _ref$opacity = _ref.opacity,
+          opacity = _ref$opacity === void 0 ? 0.7 : _ref$opacity;
+      var parent = document.createElement('div');
+      var el = document.createElement('div');
+      parent.appendChild(el);
+      document.body.appendChild(parent);
+      var vm = new _V({
+        el: el,
+        render: function render() {
+          var h = arguments[0];
+          return h(BeginGride, {
+            "attrs": {
+              "lists": lists,
+              "opacity": opacity
+            },
+            "on": {
+              "destory": destory
+            }
+          });
+        }
+      });
+
+      function destory() {
+        vm.$destroy();
+        parent.innerHTML = '';
+        document.body.removeChild(parent);
       }
-    });
+
+      return {
+        vm: vm,
+        destory: destory
+      };
+    };
   }
 });
 // CONCATENATED MODULE: /Users/apple/.config/yarn/global/node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
