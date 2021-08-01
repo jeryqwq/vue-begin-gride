@@ -44,8 +44,11 @@ export default {
       e.stopPropagation()
     },
     handleChange(e) {
+      this.$emit('neverOpenHandler', e.target.checked)
       if (e.target.checked) {
-        window.sessionStorage.setItem("isfingerPoint", "true")
+        window.localStorage.setItem("isfingerPoint", "true")
+      }else{
+        window.localStorage.setItem("isfingerPoint", "false")
       }
     },
   },

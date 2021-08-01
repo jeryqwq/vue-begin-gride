@@ -64,7 +64,10 @@ export default {
     ]
     this.$guide({
       lists: this.lists,
-      opacity: 0.4
+      opacity: 0.4,
+      neverOpenHandler: function(isNeverOpen) {
+        alert(isNeverOpen)
+      }
     })
   },
 }

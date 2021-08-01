@@ -19,6 +19,8 @@
       :incrment="incrment"
       :opacity="opacity"
       :len="lists.length"
+      @neverOpenHandler="neverOpenHandler"
+      
     />
     <Point :len="lists.length" :curIdx="curIdx" :incrment="incrment" />
   </svg>
@@ -38,6 +40,10 @@ export default {
       type: Number,
       default: 0.4,
     },
+    neverOpenHandler: {
+      type: Function,
+      default: () => ({})
+    }
   },
   components: {
     BorderRect,
@@ -57,15 +63,6 @@ export default {
     this.$nextTick().then(() => {
       this.position = document.documentElement.getClientRects()[0]
     })
-  },
-  watch: {
-    lists() {
-      const isfingerPoint = window.sessionStorage.getItem("isfingerPoint")
-      isfingerPoint &&
-        isfingerPoint === "true" &&
-        (this.curIdx = this.lists.length)
-    },
-    deep: true,
   },
   methods: {
     incrment(idx) {
