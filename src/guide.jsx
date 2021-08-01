@@ -1,7 +1,7 @@
 
 import { createApp } from 'vue'
-import ItemSvgPath from './renderPath'
-import renderProgress from './renderProgress'
+// import ItemSvgPath from './renderPath'
+// import renderProgress from './renderProgress'
 const svgStyle = {
   position: 'fixed',
   left: 0,
@@ -24,11 +24,11 @@ export default function ( options = {} ) {
         return <svg
         style={svgStyle}
       >
-        <ItemSvgPath 
+        {/* <ItemSvgPath 
           steps={options.steps}
           opacity={options.opacity}
           
-        />
+        /> */}
       </svg>
       },
     }).mount(div);

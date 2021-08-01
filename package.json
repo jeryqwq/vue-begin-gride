@@ -1,0 +1,34 @@
+{
+  "name": "vue3-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "vite": "^2.4.4",
+    "vue": "^3.1.5"
+  },
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeryqwq/vue-begin-gride.git"
+  },
+  "keywords": [
+    "功能引导",
+    "新手指引"
+  ],
+  "author": "jeryqwq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeryqwq/vue-begin-gride/issues"
+  },
+  "homepage": "https://github.com/jeryqwq/vue-begin-gride#readme"
+}
