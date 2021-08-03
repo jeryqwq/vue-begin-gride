@@ -1,15 +1,16 @@
-export type GuideProps = {
+import { JSXElement } from "@babel/types";
+
+export interface GuideProps  {
   opacity: Number,
-  neverOpenHandler: Function,
-  list: [
-    {
-      el: HTMLElement,
-      width?: String,
-      style?: String,
-      text: String|Function,
-      lineStyle: String,
-      padding: Number,
-      render: Function
-    }
-  ]
+  neverOpenHandler: (obj: Boolean) => void,
+  steps: [StepItem]
+}
+type StepItem = {
+  el: HTMLElement,
+  width?: String,
+  style?: String,
+  text: String | Function,
+  lineStyle: String,
+  padding: Number,
+  render?: (item: StepItem) => JSXElement
 }
