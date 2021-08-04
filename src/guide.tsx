@@ -12,8 +12,8 @@ const svgStyle: CSSProperties = {
   minHeight: '100vh'
 }
 export default function ( options: GuideProps ) {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
+  const div = document.createElement('div')
+  document.body.appendChild(div)
   const vm = render(options)
   function render(options: GuideProps) {
     return createApp({
@@ -40,10 +40,11 @@ export default function ( options: GuideProps ) {
         return <svg
         style={svgStyle}
       >
-        <ItemSvgPath 
-          steps={options.steps}
-          opacity={options.opacity}
-          neverOpenHandler={options.neverOpenHandler}
+        <ItemSvgPath
+          steps={this.steps}
+          opacity={this.opacity}
+          neverOpenHandler={this.neverOpenHandler}
+          curIndex = { this.curIndex }
           on={{
               change: this.indexChange
             }}

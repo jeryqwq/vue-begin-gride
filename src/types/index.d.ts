@@ -5,12 +5,19 @@ export interface GuideProps  {
   neverOpenHandler: (obj: Boolean) => void,
   steps: [StepItem]
 }
-type StepItem = {
+export interface StepItem  {
   el: HTMLElement,
   width?: String,
   style?: String,
   text: String | Function,
   lineStyle: String,
   padding: Number,
-  render?: (item: StepItem) => JSXElement
+  render?: (item: StepItem) => JSXElement,
+  align: Direction
+}
+ export enum Direction {
+  Up = "UP",
+  Down = "DOWN",
+  Left = "LEFT",
+  Right = "RIGHT",
 }

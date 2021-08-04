@@ -8,11 +8,9 @@
     "test": "test"
   },
   "dependencies": {
+    "@vitejs/plugin-vue-jsx": "^1.1.7",
     "vite": "^2.4.4",
     "vue": "^3.1.5"
-  },
-  "devDependencies": {
-
   },
   "scripts": {
     "dev": "vite",
