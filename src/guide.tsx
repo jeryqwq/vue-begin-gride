@@ -1,6 +1,6 @@
 
 import { createApp, CSSProperties, reactive, ref, toRefs } from 'vue'
-import ItemSvgPath from './renderPath'
+import ItemSvgPath  from './renderPath'
 import { GuideProps } from './types';
 // import renderProgress from './renderProgress'
 const svgStyle: CSSProperties = {

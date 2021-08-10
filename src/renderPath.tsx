@@ -3,16 +3,21 @@ const defaultWrapStyle =
   "color:white;border-radius: 20px;border:dashed 2px white;display: inline-block;padding:10px"
 
 const lineStyle = "stroke-dasharray: 5px 5px;stroke-width:2px"
-const deviation = {
-  x: 40,
-  y: 40
-}
+let cloneNode = null
 const comp: Component = {
   props: {
     steps: Array,
     opacity: Number,
     neverOpenHandler: Function,
     curIndex: Number
+  },
+  data() {
+    return {
+      deviation: {
+        x: 0,
+        y: 0
+      }
+    }
   },
   render () {
     return <g>
@@ -24,8 +29,23 @@ const comp: Component = {
       { this.renderHtml() }
     </g>
   },
-  created () {
-    console.log(this.setps)
+  mounted () {
+    console.log(this)
+    cloneNode = this.$refs.innerContent.cloneNode(true)
+    cloneNode.style.display = 'inline-block'
+    cloneNode.style.opacity = '0'
+    document.body.appendChild(cloneNode)
+  },
+  watch: {
+    curIndex: {
+      async handler () {
+        await this.$nextTick()
+        const { width, height } = cloneNode.getClientRects()[0]
+        this.deviation.x = width
+        this.deviation.y = height
+      },
+      immediate: true
+    }
   },
   methods: {
     renderLine () {
@@ -34,52 +54,64 @@ const comp: Component = {
         d={`M 
           ${left - 20} ${ top + height / 2}  
           Q ${left - 80 } ${ top + height / 2 }
-          ${left - 20 } ${ top + height + deviation.y  }
+          ${left - 20 } ${ top + height + this.deviation.y  }
         `}
         stroke="white"
         fill="none"
         style={this.curItem.lineStyle ? this.curItem.lineStyle : lineStyle}
     />
     },
+    renderNext () {
+      return <span
+              onClick={() => this.incrment(this.curIdx + 1)}
+              style="border:solid 1px white;padding:8px;border-radius:5px;cursor:pointer; position: absolute; right: 0; bottom: 0"
+            >
+              {this.steps.length - 1 === this.curIndex ? "完成" : "下一步"}
+            </span>
+    },
+    renderCheck () {
+      return this.steps.length - 1 === this.curIndex && (
+        <label
+          onClick={this.neverAlert}
+          style="color: white;font-size: 14px;width: 100px;line-height: 30px;display: inline-block;height: 30px;left: 0px;position: absolute;bottom: 0px;"
+        >
+          <input
+            type="checkbox"
+            style="vertical-align: middle;"
+            onChange={this.handleChange}
+            ref="checkbox"
+          />
+          下次不再提示
+        </label>
+      )
+    },
     renderHtml () {
-      const { x, y } = deviation
+      const { x, y } = this.deviation
       return <foreignObject
               x={this.position.left}
-              y={this.position.top + x}
-              width={this.position.width * 2}
-              height={this.position.height * 4}
+              y={this.position.top + y}
+              width={this.deviation.x + 100 }
+              height={this.deviation.y + 30}
               style="color:white"
               key={`item${this.curIdx}`}
             >
-            <div
-              style={this.curItem.style ? this.curItem.style : defaultWrapStyle}
-              ref={"innerContent"}
-            >
+              <div style="text-align:left">
               {typeof this.curItem.text === "function"
-                ? this.curItem.text()
-                : this.curItem.text}
-              <br />
-              {/* {this.len - 1 === this.curIdx && (
-                <label
-                  onClick={this.neverAlert}
-                  style="color:white;font-size:14px;line-height:30px"
-                >
-                  <input
-                    type="checkbox"
-                    style="vertical-align: middle;"
-                    onChange={this.handleChange}
-                    ref="checkbox"
-                  />
-                  下次不再提示
-                </label>
-              )} */}
-            </div>
-            <span
-              onClick={() => this.incrment(this.curIdx + 1)}
-              style="float:right;margin:10px;border:solid 1px white;padding:8px;border-radius:5px;cursor:pointer"
-            >
-              {this.len - 1 === this.curIdx ? "完成" : "下一步"}
-            </span>
+                ? (
+                  <div ref={"innerContent"}>
+                    {this.curItem.text()}
+                  </div>
+                )
+                : (<div
+                    style={this.curItem.style ? this.curItem.style : defaultWrapStyle}
+                    ref={"innerContent"}
+                  >
+                    {this.curItem.text}
+                  </div>
+                  )}
+              { this.renderCheck() }
+              { this.renderNext() }
+              </div>
           </foreignObject>
     }
   },
